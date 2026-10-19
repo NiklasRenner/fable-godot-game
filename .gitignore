@@ -1,0 +1,21 @@
+# Godot: the import cache, rebuilt on first open. The *.import files next to the assets are kept
+# (Godot's advice): they hold each asset's import settings and UID.
+.godot/
+export/
+
+# Python
+__pycache__/
+
+# Art sources and reference art (Meshy outputs, concepts, candidates, screenshots, check renders):
+# local only, the game loads assets/ only. The records of how each asset was made (*.json) stay.
+meshy/**
+!meshy/**/
+!meshy/**/*.json
+!meshy/.gdignore
+
+# Dev hook inputs: a run reads them, acts and quits (see README)
+screenshot.request
+preview.request
+fx_preview.request
+fetch.request
+_to_delete/
