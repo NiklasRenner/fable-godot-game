@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/map/prop.gd" id="1_prop"]
+[ext_resource type="PackedScene" path="res://assets/prop_campfire.glb" id="2_model"]
+[ext_resource type="Script" path="res://scripts/world/campfire.gd" id="3_fire"]
+
+[sub_resource type="CylinderShape3D" id="shape"]
+height = 0.6
+radius = 0.9
+
+[node name="Campfire" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_prop")
+
+[node name="Model" parent="." instance=ExtResource("2_model")]
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("shape")
+
+[node name="Fire" type="Node3D" parent="."]
+script = ExtResource("3_fire")

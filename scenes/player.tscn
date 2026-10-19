@@ -1,0 +1,127 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_player"]
+[ext_resource type="Script" path="res://scripts/player/camera_rig.gd" id="2_camera"]
+
+[sub_resource type="CapsuleShape3D" id="capsule"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="SceneReplicationConfig" id="replication"]
+properties/0/path = NodePath(".:net_pos")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:net_yaw")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:health")
+properties/2/spawn = true
+properties/2/replication_mode = 2
+properties/3/path = NodePath(".:max_health")
+properties/3/spawn = true
+properties/3/replication_mode = 2
+properties/4/path = NodePath(".:is_dead")
+properties/4/spawn = true
+properties/4/replication_mode = 2
+properties/5/path = NodePath(".:resource")
+properties/5/spawn = true
+properties/5/replication_mode = 2
+properties/6/path = NodePath(".:level")
+properties/6/spawn = true
+properties/6/replication_mode = 2
+properties/7/path = NodePath(".:xp")
+properties/7/spawn = true
+properties/7/replication_mode = 2
+properties/8/path = NodePath(".:auto_attack")
+properties/8/spawn = true
+properties/8/replication_mode = 2
+properties/9/path = NodePath(".:moving")
+properties/9/spawn = true
+properties/9/replication_mode = 2
+properties/10/path = NodePath(".:attack_tick")
+properties/10/spawn = true
+properties/10/replication_mode = 2
+properties/11/path = NodePath(".:inventory")
+properties/11/spawn = true
+properties/11/replication_mode = 2
+properties/12/path = NodePath(".:equipment")
+properties/12/spawn = true
+properties/12/replication_mode = 2
+properties/13/path = NodePath(".:armor")
+properties/13/spawn = true
+properties/13/replication_mode = 2
+properties/14/path = NodePath(".:strength")
+properties/14/spawn = true
+properties/14/replication_mode = 2
+properties/15/path = NodePath(".:stamina")
+properties/15/spawn = true
+properties/15/replication_mode = 2
+properties/16/path = NodePath(".:copper")
+properties/16/spawn = true
+properties/16/replication_mode = 2
+properties/17/path = NodePath(".:quests")
+properties/17/spawn = true
+properties/17/replication_mode = 2
+properties/18/path = NodePath(".:is_ghost")
+properties/18/spawn = true
+properties/18/replication_mode = 2
+properties/19/path = NodePath(".:corpse_position")
+properties/19/spawn = true
+properties/19/replication_mode = 2
+properties/20/path = NodePath(".:has_corpse")
+properties/20/spawn = true
+properties/20/replication_mode = 2
+properties/21/path = NodePath(".:class_id")
+properties/21/spawn = true
+properties/21/replication_mode = 2
+properties/22/path = NodePath(".:char_name")
+properties/22/spawn = true
+properties/22/replication_mode = 2
+properties/23/path = NodePath(".:max_resource")
+properties/23/spawn = true
+properties/23/replication_mode = 2
+properties/24/path = NodePath(".:intellect")
+properties/24/spawn = true
+properties/24/replication_mode = 2
+properties/25/path = NodePath(".:airborne")
+properties/25/spawn = true
+properties/25/replication_mode = 2
+properties/26/path = NodePath(".:move_dir")
+properties/26/spawn = true
+properties/26/replication_mode = 2
+properties/27/path = NodePath(".:sitting")
+properties/27/spawn = true
+properties/27/replication_mode = 2
+properties/28/path = NodePath(".:casting")
+properties/28/spawn = true
+properties/28/replication_mode = 2
+properties/29/path = NodePath(".:effects")
+properties/29/spawn = true
+properties/29/replication_mode = 2
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("capsule")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="CameraRig" type="Node3D" parent="."]
+script = ExtResource("2_camera")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraRig"]
+collision_mask = 1
+spring_length = 7.0
+margin = 0.3
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig/SpringArm3D"]
+fov = 70.0
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("replication")
+replication_interval = 0.05
+delta_interval = 0.1

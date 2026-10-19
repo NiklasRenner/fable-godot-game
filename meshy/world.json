@@ -1,0 +1,241 @@
+{
+ "what": "World art: terrain layers, ground clutter sprites and props, all in the WoW Classic hand-painted style (ground style A, chosen from three).",
+ "source": "Meshy text-to-image (nano-banana-2) per texture/sprite/prop concept; props then image-to-3d (smart topology meshy-t2.5, textured). Imported with tools/import_meshy.py; see docs/art-pipeline.md.",
+ "terrain": {
+  "files": "meshy/terrain/a_<layer>.png (raw) -> `texture` -> assets/terrain/<layer>.png",
+  "commands": {
+   "grass": "texture",
+   "dry": "texture",
+   "rock": "texture",
+   "dirt": "texture --saturation 0.7 --brighten 0.92"
+  },
+  "tasks": {
+   "grass": "01a1510b-efb1-725f-b552-5895addc833d",
+   "dry": "01a1510b-f428-7112-aeee-01746cc1e963",
+   "dirt": "01a1510b-fa7a-719d-b840-9b804c633275",
+   "rock": "01a1510b-ff68-7695-9795-2eae1fcbc6b8"
+  }
+ },
+ "sprites": {
+  "grass": {
+   "concept": "01a1511b-856f-70b5-b8bc-e568222df901",
+   "file": "meshy/props/grass_sprite.png",
+   "out": "assets/fx/grass_card.png",
+   "command": "sprite"
+  },
+  "flower": {
+   "concept": "01a1511b-8a43-772d-9c4a-aafff74a3546",
+   "file": "meshy/props/flower_sprite.png",
+   "out": "assets/fx/flower_card.png",
+   "command": "sprite"
+  }
+ },
+ "props": {
+  "pine": {
+   "concept": "01a15126-a237-7033-a3f4-8633b22c9ee9",
+   "model": "01a15127-2573-76aa-b640-0ef5dd4c38ba",
+   "target_polycount": 1500,
+   "file": "meshy/props/pine.glb",
+   "command": "rigid meshy/props/pine.glb assets/tree.glb --kind prop --size 7.0 --texture 512"
+  },
+  "oak": {
+   "concept": "01a1511b-3eb0-766d-9463-b5f0bc5cfc88",
+   "model": "01a15126-a73c-77d5-9f0b-fea07f63c7f7",
+   "target_polycount": 2000,
+   "file": "meshy/props/oak.glb",
+   "command": "rigid meshy/props/oak.glb assets/tree_oak.glb --kind prop --size 6.0 --texture 512"
+  },
+  "boulder": {
+   "concept": "01a1511b-43fa-775a-af35-86501cbe07ad",
+   "model": "01a15126-acf8-7116-ac99-b10e1b2d83cf",
+   "target_polycount": 500,
+   "file": "meshy/props/boulder.glb",
+   "command": "rigid meshy/props/boulder.glb assets/rock.glb --kind prop --size 1.3"
+  },
+  "tent": {
+   "concept": "01a1511b-4a4f-70d4-9925-52c014c96645",
+   "model": "01a15126-b278-734c-b581-bc36aeb289d3",
+   "target_polycount": 1200,
+   "file": "meshy/props/tent.glb",
+   "command": "rigid meshy/props/tent.glb assets/prop_tent.glb --kind prop --size 2.6 --texture 512"
+  },
+  "crate": {
+   "concept": "01a1511b-4fe7-75e1-9061-74d4c6d80e70",
+   "model": "01a15126-b864-7482-96ed-d8eac68f0cd3",
+   "target_polycount": 400,
+   "file": "meshy/props/crate.glb",
+   "command": "rigid meshy/props/crate.glb assets/prop_crate.glb --kind prop --size 0.9"
+  },
+  "barrel": {
+   "concept": "01a1511b-546b-767f-9036-3f62d1bb046c",
+   "model": "01a15126-be69-73dc-9a0b-00f1df657b83",
+   "target_polycount": 400,
+   "file": "meshy/props/barrel.glb",
+   "command": "rigid meshy/props/barrel.glb assets/prop_barrel.glb --kind prop --size 1.1"
+  },
+  "fence": {
+   "concept": "01a1511b-5a18-7277-ab69-8b9ef268cf40",
+   "model": "01a15126-c312-7063-a93e-328447338042",
+   "target_polycount": 300,
+   "file": "meshy/props/fence.glb",
+   "command": "rigid meshy/props/fence.glb assets/prop_fence.glb --kind prop --size 3.0 --along x"
+  },
+  "signpost": {
+   "concept": "01a1511b-601b-768f-939d-4d03dd0905d0",
+   "model": "01a15126-c8df-743f-afe0-912de1227dde",
+   "target_polycount": 400,
+   "file": "meshy/props/signpost.glb",
+   "command": "rigid meshy/props/signpost.glb assets/prop_signpost.glb --kind prop --size 2.3"
+  },
+  "gravestone": {
+   "concept": "01a1511b-6634-7074-803a-9feb82720f62",
+   "model": "01a15126-ce76-7412-83f8-b10719b35046",
+   "target_polycount": 250,
+   "file": "meshy/props/gravestone.glb",
+   "command": "rigid meshy/props/gravestone.glb assets/prop_gravestone.glb --kind prop --size 1.0"
+  },
+  "campfire": {
+   "concept": "01a1511b-6ce4-70d4-bfd5-4fb970027757",
+   "model": "01a15126-d48d-726f-afee-40b40f32108d",
+   "target_polycount": 900,
+   "file": "meshy/props/campfire.glb",
+   "command": "rigid meshy/props/campfire.glb assets/prop_campfire.glb --kind prop --size 1.8 --along x"
+  },
+  "log": {
+   "concept": "01a1511b-732a-7074-bba9-00eeba4865fd",
+   "model": "01a15126-da2d-737a-9581-6ad33ea4f0a3",
+   "target_polycount": 400,
+   "file": "meshy/props/log.glb",
+   "command": "rigid meshy/props/log.glb assets/prop_log.glb --kind prop --size 1.7 --along x"
+  },
+  "torch": {
+   "concept": "01a1511b-7934-729b-a8a7-3a314dc60e40",
+   "model": "01a15126-dfd6-74c1-8661-f840b50f3a4b",
+   "target_polycount": 500,
+   "file": "meshy/props/torch.glb",
+   "command": "rigid meshy/props/torch.glb assets/prop_torch.glb --kind prop --size 2.0"
+  },
+  "stones": {
+   "concept": "01a1511b-7e5b-747f-93b8-5f9946ba08ef",
+   "model": "01a15126-e4e2-7493-a02a-e6bbc1803715",
+   "target_polycount": 200,
+   "file": "meshy/props/stones.glb",
+   "command": "rigid meshy/props/stones.glb assets/prop_rock_small.glb --kind prop --size 0.7 --along x"
+  },
+  "oak2": {
+   "concept": "01a15151-d14a-73ea-b269-4b7361655f1d",
+   "model": "01a15153-7744-77a5-8382-65b3b546dccc",
+   "target_polycount": 1800,
+   "file": "meshy/night/oak2.glb",
+   "command": "rigid meshy/night/oak2.glb assets/tree_oak2.glb --kind prop --size 6.5 --texture 512"
+  },
+  "logpile": {
+   "concept": "01a15151-d3e2-7442-9f9b-b53d32359ed9",
+   "model": "01a1515a-ac6b-7248-b3a6-84bf65f1377d",
+   "target_polycount": 2000,
+   "note": "the first try at 600 triangles had spiky log ends",
+   "file": "meshy/night/logpile2.glb",
+   "command": "rigid meshy/night/logpile2.glb assets/prop_logpile.glb --kind prop --size 1.1 --texture 512"
+  },
+  "axe": {
+   "concept": "01a15443-1c60-7047-b6b8-f4c9916a90de",
+   "model": "01a15444-970b-73a8-bdfd-48f3355f3e1d",
+   "file": "meshy/props2/axe.glb",
+   "command": "rigid meshy/props2/axe.glb assets/weapon_axe.glb --kind weapon --size 0.75 --grip 0.12",
+   "note": "weapon (replaced the old Blender box model)"
+  },
+  "club": {
+   "concept": "01a15443-23b8-766e-adcf-c2660f87e007",
+   "model": "01a15444-9bc0-75a9-b2cb-42f0ff18b5ce",
+   "file": "meshy/props2/club.glb",
+   "command": "rigid meshy/props2/club.glb assets/weapon_club.glb --kind weapon --size 0.9 --grip 0.12",
+   "note": "weapon (replaced the old Blender box model)"
+  },
+  "wand": {
+   "concept": "01a15443-2a83-71e3-87ea-655a72f06083",
+   "model": "01a15444-a149-7565-be9a-5fd05d7835bf",
+   "file": "meshy/props2/wand.glb",
+   "command": "rigid meshy/props2/wand.glb assets/weapon_wand.glb --kind weapon --size 0.45 --grip 0.2",
+   "note": "weapon (replaced the old Blender box model)"
+  },
+  "staff": {
+   "concept": "01a15443-3225-7467-bd5e-91df957321e9",
+   "model": "01a15444-a6b1-76b9-8f49-548c7e03a4ce",
+   "file": "meshy/props2/staff.glb",
+   "command": "rigid meshy/props2/staff.glb assets/weapon_staff.glb --kind weapon --size 1.7 --grip 0.4",
+   "note": "weapon (replaced the old Blender box model)"
+  },
+  "torch_small": {
+   "concept": "01a15443-38c4-70c7-9ce9-da3115cc2814",
+   "model": "01a15444-abcf-71d1-b39f-324003a2d7f6",
+   "file": "meshy/props2/torch_small.glb",
+   "command": "rigid meshy/props2/torch_small.glb assets/prop_torch_small.glb --kind prop --size 0.9"
+  },
+  "lantern": {
+   "concept": "01a15443-3f59-7083-9cbd-8e1b21c29cbf",
+   "model": "01a15444-b165-71c4-8ed9-50b5da57422a",
+   "file": "meshy/props2/lantern.glb",
+   "command": "rigid meshy/props2/lantern.glb assets/prop_lantern.glb --kind prop --size 0.45"
+  },
+  "lantern_post": {
+   "concept": "01a15443-4575-725a-9062-558ad2f0aa1f",
+   "model": "01a15444-b62f-71eb-bf9d-b16f51d6ad3a",
+   "file": "meshy/props2/lantern_post.glb",
+   "command": "rigid meshy/props2/lantern_post.glb assets/prop_lantern_post.glb --kind prop --size 2.3"
+  },
+  "bedroll": {
+   "concept": "01a15443-4bdc-75f9-87dd-6ab172590a37",
+   "model": "01a15444-bb78-7685-9d44-40bd892e0bcb",
+   "file": "meshy/props2/bedroll.glb",
+   "command": "rigid meshy/props2/bedroll.glb assets/prop_bedroll.glb --kind prop --size 2.0 --along x"
+  },
+  "sacks": {
+   "concept": "01a15443-51f7-759e-9608-ba457ed7a259",
+   "model": "01a15444-c0b5-748a-8c15-30d581f54f61",
+   "file": "meshy/props2/sacks.glb",
+   "command": "rigid meshy/props2/sacks.glb assets/prop_sacks.glb --kind prop --size 0.9"
+  },
+  "cookpot": {
+   "concept": "01a15443-5906-77ba-aa6a-2c76c66b45dd",
+   "model": "01a15444-c680-7400-97fa-f5107321da9a",
+   "file": "meshy/props2/cookpot.glb",
+   "command": "rigid meshy/props2/cookpot.glb assets/prop_cookpot.glb --kind prop --size 1.6"
+  },
+  "weapon_rack": {
+   "concept": "01a15443-5ddf-735d-8293-811d709ad9a0",
+   "model": "01a15444-cb3f-756a-a7e3-c36d147d9d15",
+   "file": "meshy/props2/weapon_rack.glb",
+   "command": "rigid meshy/props2/weapon_rack.glb assets/prop_weapon_rack.glb --kind prop --size 1.6"
+  },
+  "lootbag": {
+   "concept": "01a15443-1627-772e-8b88-794a23e03277",
+   "model": "01a15445-5571-7022-81e3-2bab713b976f",
+   "file": "meshy/props2/lootbag.glb",
+   "command": "rigid meshy/props2/lootbag.glb assets/prop_lootbag.glb --kind prop --size 0.5",
+   "concept_edit": "01a15444-92f2-72a1-b4d8-0a67138606cd (image_to_image of the concept)"
+  }
+ },
+ "fx": {
+  "what": "Painted effect shapes (greyscale on black), cut into atlas cells by tools/build_fx_textures.py",
+  "fire": {
+   "image": "01a154ac-c20e-72b4-9f3a-fb3105e426a7",
+   "file": "meshy/fx/fire_src.png",
+   "out": "assets/fx/tex/fire.png (2x2)"
+  },
+  "smoke": {
+   "image": "01a154ac-c949-74fc-9c9c-d954e8591b1e",
+   "file": "meshy/fx/smoke_src.png",
+   "out": "assets/fx/tex/smoke.png (2x2)"
+  },
+  "wisp": {
+   "image": "01a154ac-d218-7032-b1e8-463de6226cc7",
+   "file": "meshy/fx/wisp_src.png",
+   "out": "assets/fx/tex/wisp.png (2x2)"
+  },
+  "streak": {
+   "image": "01a154ac-daa3-7056-a3ab-69cfd57eec74",
+   "file": "meshy/fx/streak_src.png",
+   "out": "assets/fx/tex/streak.png"
+  }
+ }
+}

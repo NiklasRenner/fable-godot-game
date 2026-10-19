@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/loot_bag.gd" id="1_loot"]
+
+[sub_resource type="SceneReplicationConfig" id="replication"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 0
+properties/1/path = NodePath(".:items")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+properties/2/path = NodePath(".:owner_peer")
+properties/2/spawn = true
+properties/2/replication_mode = 2
+
+[node name="LootBag" type="StaticBody3D"]
+script = ExtResource("1_loot")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("replication")
+replication_interval = 0.2

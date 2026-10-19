@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/map/prop.gd" id="1_prop"]
+[ext_resource type="PackedScene" path="res://assets/prop_bedroll.glb" id="2_model"]
+
+[node name="Bedroll" type="Node3D"]
+script = ExtResource("1_prop")
+
+[node name="Model" parent="." instance=ExtResource("2_model")]

@@ -1,0 +1,22 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/map/prop.gd" id="1_prop"]
+[ext_resource type="PackedScene" path="res://assets/prop_torch_small.glb" id="2_model"]
+[ext_resource type="Script" path="res://scripts/map/torch_flame.gd" id="3_flame"]
+
+[node name="TorchSmall" type="Node3D"]
+script = ExtResource("1_prop")
+
+[node name="Model" parent="." instance=ExtResource("2_model")]
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
+light_color = Color(1, 0.72, 0.4, 1)
+light_energy = 1.0
+omni_range = 5.0
+light_specular = 0.3
+
+[node name="Flame" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, 0.8, -0.05)
+script = ExtResource("3_flame")
+size = Vector2(0.24, 0.36)

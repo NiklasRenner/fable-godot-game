@@ -1,0 +1,32 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c7trjh654bmtw"]
+
+[ext_resource type="Shader" uid="uid://cyj1vrhbwhiwa" path="res://assets/terrain/terrain.gdshader" id="1"]
+[ext_resource type="Texture2D" uid="uid://bblyux7a11rol" path="res://assets/terrain/grass.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://1evc6ounj113" path="res://assets/terrain/dry.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://djrf86udxmmwt" path="res://assets/terrain/dirt.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dbj3vdaq7qqa2" path="res://assets/terrain/rock.png" id="5"]
+
+[sub_resource type="FastNoiseLite" id="noise"]
+seed = 3
+frequency = 0.012
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="macro"]
+width = 256
+height = 256
+noise = SubResource("noise")
+seamless = true
+
+[resource]
+render_priority = 0
+shader = ExtResource("1")
+shader_parameter/grass = ExtResource("2")
+shader_parameter/dry = ExtResource("3")
+shader_parameter/dirt = ExtResource("4")
+shader_parameter/rock = ExtResource("5")
+shader_parameter/macro = SubResource("macro")
+shader_parameter/tile_size = 5.0
+shader_parameter/rock_tile_size = 6.0
+shader_parameter/tint_strength = 0.18
+shader_parameter/edge_sharpness = 3.0
+shader_parameter/cave_paint = false

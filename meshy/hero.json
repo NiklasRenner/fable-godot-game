@@ -1,0 +1,40 @@
+{
+ "model": "assets/hero.glb",
+ "what": "Base body: clean-shaven human male in linen shorts (concept A), ~3.2k tris, Mixamo-style 24-bone rig. Armour and weapons are separate assets layered on top.",
+ "source": "See docs/art-pipeline.md. Concept by Meshy text-to-image (nano-banana-2), image-to-3d (meshy-t2.5 smart topology, 3000 tris, a-pose), auto-rig at 1.8 m, preset animations.",
+ "tasks": {
+  "concept": "01a15067-6493-7536-9276-bff941d82997",
+  "model": "01a1506b-3e3b-77a7-965c-dae68e5c8b94",
+  "rig": "01a1506e-b9cc-7524-bc10-c68a9b2aa92c",
+  "animation": "01a1506f-3cb1-758d-897a-76482c6e1c66",
+  "skin_chain (retexture, original UVs)": "01a1508e-fcfc-7603-a254-48d4abd228b2",
+  "longsword (preview / texture)": "01a1508f-066d-7347-be1f-e58eb0bd84a8 / 01a150a3-5491-7016-977a-1094575c5e3c",
+  "pauldron (preview / texture)": "01a1508f-1066-7710-b617-8556187e37e1 / 01a150a3-5d5c-73b9-b408-8b7c46cb0e8c",
+  "animation_2 (extra clips, meshy/anim2/hero_cand.glb)": "01a154bb-3892-74a4-9f6e-b0fa5504170c"
+ },
+ "clips": {
+  "idle": "Idle (0)",
+  "walk": "Lean Forward Sprint in place (644), legs +25% (tools/build_extra_clips.py)",
+  "attack": "Left Slash (97)",
+  "cast": "Mage Spell Cast (129)",
+  "sit": "Sit Cross-legged on Floor (363)",
+  "jump": "Regular Jump (466)",
+  "idle_calm": "Idle 12 (252) + Idle 02's (11) weight shift, arms back with bent elbows, breathing and sway (tools/build_extra_clips.py)",
+  "combat_idle": "Combat Stance (89)"
+ },
+ "files": {
+  "base_a.png": "the chosen concept image",
+  "base_a_anim.glb": "rigged + animated body, input of `import_meshy.py model` -> assets/hero.glb",
+  "armor_chain.glb": "retexture with original UVs, input of `skin` -> assets/hero_skin_chain.png (--brighten 1.35)",
+  "longsword.glb": "input of `rigid --kind weapon` -> assets/weapon_longsword.glb",
+  "pauldron.glb": "input of `rigid --kind shoulder --size 0.3` -> assets/shoulder_pauldron.glb",
+  "anim2/hero_cand.glb": "candidate clips on the same rig (Idle_02, Idle_9, Idle_12, Combat_Stance, Idle_10, four runs), input of tools/build_extra_clips.py"
+ },
+ "next_concepts": {
+  "note": "base body v2 candidates in the troll's painted style (meshy/hero2/concept_a..d.png); image-to-image with troll_b.png + base_a.png as references",
+  "A": "01a1548a-fcf6-753d-a18b-62a2e7e29796",
+  "B": "01a1548b-09cc-7117-8372-9ed93986cb6b",
+  "C": "01a1548b-18f3-7316-8d82-9d67c0218a4e",
+  "D": "01a1548b-272e-73c6-8b2c-c2ea438eb00f"
+ }
+}

@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/map/prop.gd" id="1_prop"]
+[ext_resource type="PackedScene" path="res://assets/prop_lantern_post.glb" id="2_model"]
+[ext_resource type="Script" path="res://scripts/map/torch_flame.gd" id="3_flame"]
+
+[sub_resource type="CylinderShape3D" id="shape"]
+height = 2.3
+radius = 0.2
+
+[node name="LanternPost" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_prop")
+
+[node name="Model" parent="." instance=ExtResource("2_model")]
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42, 1.15, 0)
+shape = SubResource("shape")
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 1.35, 0)
+light_color = Color(1, 0.72, 0.4, 1)
+light_energy = 1.2
+omni_range = 7.0
+light_specular = 0.3
+
+[node name="Flame" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 1.44, 0)
+script = ExtResource("3_flame")
+glow = 0.75

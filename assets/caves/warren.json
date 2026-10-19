@@ -1,0 +1,176 @@
+{
+ "name": "warren",
+ "origin": [
+  -66,
+  -30
+ ],
+ "mouth": "mouth",
+ "rooms": [
+  {
+   "id": "mouth",
+   "pos": [
+    0,
+    0
+   ],
+   "r": 3.5,
+   "h": 4.5,
+   "y": -6.5
+  },
+  {
+   "id": "hall",
+   "pos": [
+    0,
+    -9
+   ],
+   "r": 4.5,
+   "h": 4.5,
+   "y": -6.5
+  },
+  {
+   "id": "west",
+   "pos": [
+    -10,
+    -16
+   ],
+   "r": 3.5,
+   "h": 4,
+   "y": -8.0
+  },
+  {
+   "id": "east",
+   "pos": [
+    10,
+    -16
+   ],
+   "r": 4,
+   "h": 4,
+   "y": -8.0
+  },
+  {
+   "id": "back",
+   "pos": [
+    0,
+    -23
+   ],
+   "r": 4,
+   "h": 5,
+   "y": -9.5
+  },
+  {
+   "id": "throne",
+   "pos": [
+    0,
+    -37
+   ],
+   "r": 6.5,
+   "h": 7.5,
+   "y": -11.0
+  }
+ ],
+ "tunnels": [
+  {
+   "a": "mouth",
+   "b": "hall",
+   "w": 4
+  },
+  {
+   "a": "hall",
+   "b": "west",
+   "w": 3.5
+  },
+  {
+   "a": "hall",
+   "b": "east",
+   "w": 3.5
+  },
+  {
+   "a": "west",
+   "b": "back",
+   "w": 3.5
+  },
+  {
+   "a": "east",
+   "b": "back",
+   "w": 3.5
+  },
+  {
+   "a": "back",
+   "b": "throne",
+   "w": 4.5
+  }
+ ],
+ "spawns": [
+  {
+   "room": "hall",
+   "kind": "troll",
+   "n": 2
+  },
+  {
+   "room": "west",
+   "kind": "troll",
+   "n": 2
+  },
+  {
+   "room": "east",
+   "kind": "troll",
+   "n": 2
+  },
+  {
+   "room": "back",
+   "kind": "troll",
+   "n": 1
+  },
+  {
+   "room": "throne",
+   "kind": "troll",
+   "n": 2
+  }
+ ],
+ "boss": {
+  "room": "throne",
+  "kind": "troll_brute"
+ },
+ "torches": [
+  [
+   -2.5,
+   -5
+  ],
+  [
+   2.5,
+   -5
+  ],
+  [
+   -5,
+   -20
+  ],
+  [
+   5,
+   -20
+  ],
+  [
+   -4,
+   -31
+  ],
+  [
+   4,
+   -31
+  ],
+  [
+   0,
+   -43
+  ]
+ ],
+ "seed": 3,
+ "surface_y": 2.0,
+ "facing": [
+  1,
+  0
+ ],
+ "entrance": {
+  "dir": [
+   0,
+   1
+  ],
+  "length": 20
+ }
+}

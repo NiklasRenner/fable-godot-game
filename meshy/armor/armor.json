@@ -1,0 +1,95 @@
+{
+ "what": "Modelled armour sets, one per entry under sets: helm, pauldron, gauntlet and boot as separate Meshy pieces, a full-set model to fit them on, and a chest/legs skin; imported with the one command in each set's commands (tools/import_armor.py, docs/art-pipeline.md, Armour: modelled pieces). Piece files are meshy/armor/pieces/<set>_<kind>.glb, the skin <set>_skin.glb.",
+ "concepts": {
+  "note": "image-to-image (nano-banana-2) from meshy/base_a.png, same A-pose and framing",
+  "concept_a.png": "01a15563-846f-7227-a663-dd488bf3447c (knight's plate, red tabard: set plate_a)",
+  "concept_b.png": "01a15563-90f6-7437-8010-7923d24bb8b5 (rugged iron and fur, horned helm: helm too close to Skyrim's, redo it before use)",
+  "concept_c.png": "01a15563-9d5b-75e0-baff-f60dd7b626b9 (footman, blue tabard: recolour before use, reads as Stormwind guard)",
+  "concept_d.png": "01a15563-aa9f-71c6-9286-b425ab1dfeef (mercenary chain and plate)",
+  "concept_k4.png": "01a1563d-e84a-7526-91a4-19ca17491304 (base_k4 with helm, pauldrons, gauntlets, boots added: set black_k); unused candidates concept_k1/k2 (01a1563c-0302-75cd-ad77-675497c99bd8, 01a1563c-0e10-7471-8166-321dce3c9cd3, on base_k2), concept_k3 (01a1563d-ddc1-700d-b6e6-6457e5f2e246)"
+ },
+ "sets": {
+  "plate_a": {
+   "items": "thornwarden_* (GameData.ITEMS); worn by Marshal Brannoc, sold by Corwin Hale",
+   "method": "separate pieces pulled out of concept_a with image-to-image, each image-to-3d, fitted onto the full-set model (plate_a_rig.glb) and mirrored; chest and legs a Meshy retexture of the hero styled on the base layer base_a6 (the base layer was pulled out of the concept afterwards)",
+   "piece_images": {
+    "helm": "01a155c4-81e2-73bb-8b18-b738ad89bc12",
+    "shoulder": "01a155c4-88f6-7346-867a-216a1eb5a3a1",
+    "glove": "01a155c4-9269-7258-a492-702626d6ee94",
+    "boot": "01a155c4-9a5d-77e7-95c2-f83f6257b2cf"
+   },
+   "piece_models": {
+    "helm": "01a155c7-a86f-7125-b7fe-43d6f860ef1f",
+    "shoulder": "01a155c7-ad0a-747f-91c9-ab0f9d65787c",
+    "glove": "01a155c7-b25c-75b9-8d80-0ba33025dbc7",
+    "boot": "01a155c7-b741-715f-b752-98968aab9df4",
+    "note": "meshy-t2.5 smart topology, 1500-2000 tris; files meshy/armor/pieces/plate_a_*.glb"
+   },
+   "skin": "01a15612-a365-7302-b009-8a6c1d6a7434 (retexture of the hero model, original UVs, meshy-6, base_a6 as the style image) -> meshy/armor/pieces/plate_a_skin.glb; before: 01a155d4-d106-73b5-9b8c-7d4f40a5a48c (concept_a as the style, unused/plate_a_skin_concept.glb)",
+   "commands": [
+    "python tools/import_armor.py plate_a --helm meshy/armor/pieces/plate_a_helm.glb --shoulder meshy/armor/pieces/plate_a_shoulder.glb --glove meshy/armor/pieces/plate_a_glove.glb --boot meshy/armor/pieces/plate_a_boot.glb --fit meshy/armor/plate_a_rig.glb --skin meshy/armor/pieces/plate_a_skin.glb --match meshy/armor/concept_a.png"
+   ],
+   "full_set_model": "01a1556a-cbb0-77e9-9e89-055e0f1c9826, rig 01a1556c-7bdb-777f-8f92-4108df29b725 (meshy/armor/plate_a_rig.glb; the fit model)",
+   "shoulder_retexture_unused": "01a155d4-a936-75b2-91c0-d990054b282d (pauldron retextured from the concept: lost its brass trim; the original is used, tone-matched instead)"
+  },
+  "merc_d": {
+   "items": "sellsword_* (GameData.ITEMS); sold by Corwin Hale",
+   "method": "as plate_a, from concept_d; base layer base_d5",
+   "piece_images": {
+    "helm": "01a155df-f71c-72b8-ad73-a16c94cee230 (open helm with mail coif)",
+    "shoulder": "01a155df-fe83-7687-90c9-2a35fba18fad",
+    "glove": "01a155e0-083f-7265-b7d7-65a7f7bfb8e0",
+    "boot": "01a155e0-1114-73a2-8755-e1c033d49ee4"
+   },
+   "piece_models": {
+    "helm": "01a155e0-e3cf-776a-a181-ec0085cc5d57",
+    "shoulder": "01a155e0-e841-734c-a7ef-a0a26b4d6431",
+    "glove": "01a155e0-ecd4-7608-8c73-f5b3b3fbf6cb",
+    "boot": "01a155e0-f330-702d-b2e0-d4a1230115d0",
+    "note": "meshy-t2.5 smart topology, 1500-2000 tris; files meshy/armor/pieces/merc_d_*.glb"
+   },
+   "skin": "01a15612-8957-761b-99ce-8a6fb87c4e7c (retexture of the hero model, original UVs, meshy-6, base_d5 as the style image) -> meshy/armor/pieces/merc_d_skin.glb; before: 01a155e0-3281-71ba-af0f-4c8ac2737a60 (concept_d as the style, unused/merc_d_skin_concept.glb)",
+   "commands": [
+    "python tools/import_armor.py merc_d --helm meshy/armor/pieces/merc_d_helm.glb --shoulder meshy/armor/pieces/merc_d_shoulder.glb --glove meshy/armor/pieces/merc_d_glove.glb --boot meshy/armor/pieces/merc_d_boot.glb --fit meshy/armor/merc_d_rig.glb --skin meshy/armor/pieces/merc_d_skin.glb --match meshy/armor/concept_d.png"
+   ],
+   "full_set_model": "01a155a1-7483-7202-8d0d-ae22ba3b344b (image-to-3d from concept_d, meshy-t2.5 smart topology, 8000 tris, a-pose), rig 01a155a3-6cb3-7430-bc4b-e3977811ce1a (height 1.83 m) (meshy/armor/merc_d_rig.glb; the fit model)",
+   "cost": "piece images 4 x 6, piece models 4 x 15, skin 10: 94 credits; base layers and their skins (both sets) 68 more"
+  },
+  "black_k": {
+   "items": "blackscar_* (GameData.ITEMS, epic); sold by Corwin Hale",
+   "method": "the full new-set pipeline: base layer from meshy/base_a.png (text design), tabard added, concept by adding the pieces to it, pieces from the concept, fitted on the cut full-set model",
+   "piece_images": {
+    "helm": "01a15641-9302-72ef-8a3a-12e03e4441d4, then multi-view 01a1564d-6b5a-70f4-b003-1ac7ead0da05 (the single view made a helm open at the cheeks)",
+    "shoulder": "01a15644-383a-75bb-8d45-fc4685c27b14 (first try 01a15641-9b9a-7736-80a7-6f3dfb6da19c drew two pauldrons)",
+    "glove": "01a15641-a3f6-71d6-a1b0-141eb3b541c3, then multi-view 01a1564d-734e-70eb-bd8f-51337239376f (the single view guessed an all-crimson palm)",
+    "boot": "01a15641-ac1f-7684-a3dd-9a0a8858b96d"
+   },
+   "piece_models": {
+    "helm": "01a15650-3ea7-7787-b5d7-f52ae5e75815 (multi-image-to-3d, remeshed to 2000) -> black_k_helm.glb; unused single-view (unused/black_k_helm_single.glb) 01a15644-3fe5-74c6-9108-adf6bd2bdd89",
+    "shoulder": "01a15646-8ed8-743a-afba-92e7f739329c",
+    "glove": "01a15650-443d-70df-9b81-de030d5c19a4 (multi-image-to-3d) -> black_k_glove.glb; unused single-view (unused/black_k_glove_single.glb) 01a15644-448a-730c-95ac-11eae9064109",
+    "boot": "01a15644-4915-77aa-972f-f61381ff891e",
+    "note": "single views: meshy-t2.5 smart topology 1500-2000 tris; files meshy/armor/pieces/black_k_*.glb"
+   },
+   "skin": "01a1564d-cf4f-71a5-924e-e7ca17c3cd92 (retexture of the hero, original UVs, meshy-7, base_k4 as the style) -> meshy/armor/pieces/black_k_skin.glb; meshy-6 tries 01a15641-ee14-7682-abb6-c5a13f80f970, 01a1564d-a30a-705c-8fa5-034a5359fa2a (unused/black_k_skin_meshy6a/b.glb) painted the tabard brighter",
+   "commands": [
+    "python tools/import_armor.py black_k --helm meshy/armor/pieces/black_k_helm.glb --shoulder meshy/armor/pieces/black_k_shoulder.glb --glove meshy/armor/pieces/black_k_glove.glb --boot meshy/armor/pieces/black_k_boot.glb --fit meshy/armor/black_k_rig.glb --skin meshy/armor/pieces/black_k_skin.glb --match meshy/armor/concept_k4.png --match-mid yes"
+   ],
+   "full_set_model": "01a15641-b4c2-7773-8693-81cd6d6a462a (image-to-3d of concept_k4, meshy-t2.5 smart topology, 8000 tris, a-pose), rig 01a15644-68ca-70aa-9795-c27a826ecce6 (1.83 m) -> meshy/armor/black_k_rig.glb, the fit model",
+   "cost": "about 260 credits with the retries (base layers 24, concepts 24, piece images 42, piece models 120, full-set model 20, skins 30)"
+  }
+ },
+ "base_layers": {
+  "note": "image-to-image (nano-banana-2, 3:4) with meshy/base_a.png as the person and the concept as the outfit; then the boot's knee and shin plates edited out. The style images for the chest/legs skins.",
+  "base_d4.png": "01a15607-eb53-71dd-8952-37966d4d8b05 (base_a + concept_d)",
+  "base_d5.png": "01a1560e-401c-7463-aea1-023b8e1a8b70 (base_d4, knee and shin plates removed: merc_d skin)",
+  "base_a3.png": "01a15607-f789-72d4-86b3-e2032d6ce9a2",
+  "base_a4.png": "01a15608-0460-77c8-8eba-58958994f4aa (base_a + concept_a)",
+  "base_a6.png": "01a1560e-5775-70df-a07e-3abd67f7959c (base_a4, knee and shin plates removed: plate_a skin)",
+  "unused": "base_d1/d2/a1/a2 (concept alone as reference: new faces, square), base_d3, base_d6, base_a5 (lost the plate thighs)",
+  "base_k2.png": "01a15637-dfeb-74c8-a395-d257b971c9d8 (base_a + text: black knight chest and legs, no tabard); unused siblings base_k1 01a15637-d34a-71c3-b694-a40eb042cdc4 (long crimson tabard), base_k3 01a15637-ee7f-77df-8514-84550533567c (ragged black tabard)",
+  "base_k4.png": "01a1563c-1743-76d4-99f6-34894ac30073 (base_k2 + short crimson tabard: black_k skin)"
+ },
+ "hero_model_task": "01a1506b-3e3b-77a7-965c-dae68e5c8b94 (the hero model: retexture it, original UVs, for a set's skin)",
+ "unused": "meshy/armor/unused/ (old cut fit targets) and meshy/armor/pieces/unused/ (retries, extra textures): kept for reference only"
+}

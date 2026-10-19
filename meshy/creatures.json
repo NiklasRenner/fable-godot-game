@@ -1,0 +1,124 @@
+{
+ "what": "Creatures, NPC outfits and ability icons (the overnight batch): boar, wolf, the Mossback trolls and Gorrak, his club, five armour skins for the camp NPCs (reusable as item skins) and nine ability icons.",
+ "source": "Meshy text-to-image (nano-banana-2) concept per piece; image-to-3d (smart topology meshy-t2.5); bipeds rigged and animated on Meshy, quadrupeds rigged by the importer; skins are retextures of the rigged hero with enable_original_uv. Imported with tools/import_meshy.py; see docs/art-pipeline.md.",
+ "creatures": {
+  "boar": {
+   "concept": "01a15151-dc4a-7390-9a64-ce352fce8f98",
+   "model": "01a15153-80a5-77ff-b112-9659c22d13fd",
+   "target_polycount": 2500,
+   "file": "meshy/night/boar.glb",
+   "command": "quadruped meshy/night/boar.glb assets/boar.glb --size 1.7"
+  },
+  "wolf": {
+   "concept": "01a15151-e2f7-7372-a6b7-b15d966ba1a2",
+   "model": "01a15153-8549-7193-93de-c5d9c13efe11",
+   "target_polycount": 2500,
+   "file": "meshy/night/wolf.glb",
+   "command": "quadruped meshy/night/wolf.glb assets/wolf.glb --size 1.8"
+  },
+  "troll": {
+   "concept": "01a153fc-dadd-7768-bd85-3a91359c5989",
+   "references": "meshy/trolls/ref_troll_a.png, ref_troll_b.png (the user's, image-to-image)",
+   "model": "01a15437-7ae4-7657-9f3d-3d95a5d1ad3d",
+   "target_polycount": 3500,
+   "rig": "01a15439-957a-7491-a5ce-db47f461fa6e",
+   "animation": "01a15439-e1ab-7354-a510-e0f806dcc7ac",
+   "clips": [
+    "Idle",
+    "Slow_Orc_Walk_inplace",
+    "Attack"
+   ],
+   "file": "meshy/trolls/troll_b_anim.glb",
+   "command": "model meshy/trolls/troll_b_anim.glb assets/troll.glb --brighten 1.4",
+   "animation_2": "01a154ba-fb4f-75a0-8418-65e3a0f36105",
+   "extra_clips": "Combat_Stance (89), Idle_10 (250) in meshy/anim2/troll_cand.glb; combat_idle = Idle_10 crouch with the arms mostly back to idle (tools/build_extra_clips.py)"
+  },
+  "troll_boss": {
+   "concept": "01a153fc-e107-7331-80ab-915db1476b4b",
+   "references": "meshy/trolls/ref_troll_a.png",
+   "model": "01a15437-80c3-7259-b188-169991a298b4",
+   "target_polycount": 4500,
+   "rig": "01a15439-a135-775d-a3bd-fc17a95448e4",
+   "animation": "01a15439-f3ba-76de-b253-7af25f2302f6",
+   "clips": [
+    "Idle",
+    "Slow_Orc_Walk_inplace",
+    "Heavy_Hammer_Swing"
+   ],
+   "file": "meshy/trolls/boss_a_anim.glb",
+   "command": "model meshy/trolls/boss_a_anim.glb assets/troll_boss.glb --brighten 1.2",
+   "animation_2": "01a154bb-1fbd-7560-8555-b35cfa1d13c2",
+   "extra_clips": "Combat_Stance (89), Idle_10 (250) in meshy/anim2/boss_cand.glb; combat_idle = Idle_10 crouch with the arms mostly back to idle (tools/build_extra_clips.py)"
+  },
+  "troll_club": {
+   "concept": "01a15151-facb-72c3-ad64-be5d24d991f6",
+   "model": "01a15153-95bd-73b9-af49-a07e092a26c8",
+   "target_polycount": 500,
+   "file": "meshy/night/troll_club.glb",
+   "command": "rigid meshy/night/troll_club.glb assets/weapon_troll_club.glb --kind weapon --size 1.4 --grip 0.12"
+  }
+ },
+ "skins": {
+  "note": "Retextures of the rigged hero (enable_original_uv). NPCs wear one whole; items name them per slot.",
+  "leather": {
+   "task": "01a15152-2164-748f-9d6a-372a914c8bfe",
+   "command": "skin meshy/skins/leather.glb assets/hero_skin_leather.png --brighten 1.2"
+  },
+  "cloth": {
+   "task": "01a15152-2dff-7051-b4c7-8fa5638f2cfc",
+   "command": "skin meshy/skins/cloth.glb assets/hero_skin_cloth.png --brighten 1.2"
+  },
+  "marshal": {
+   "task": "01a15152-3884-7169-9494-08e6e86375ac",
+   "command": "skin meshy/skins/marshal.glb assets/hero_skin_marshal.png --brighten 1.2"
+  },
+  "provisioner": {
+   "task": "01a15152-4363-7254-8a22-6d1ba20fd200",
+   "command": "skin meshy/skins/provisioner.glb assets/hero_skin_provisioner.png --brighten 1.2"
+  },
+  "prospector": {
+   "task": "01a15152-4b99-774a-83f7-00250e1361d3",
+   "command": "skin meshy/skins/prospector.glb assets/hero_skin_prospector.png --brighten 1.2"
+  }
+ },
+ "icons": {
+  "note": "text-to-image, 1024 px; `icon <src> <dst> --box x0,y0,x1,y1` crops the painted tile inside its frame to 128 px.",
+  "heroic_strike": {
+   "task": "01a15152-7738-7780-8d0e-083142a84235",
+   "box": "50,50,975,975"
+  },
+  "charge": {
+   "task": "01a15152-7b3e-754c-9075-3deecd1a3282",
+   "box": "165,165,860,860"
+  },
+  "thunder_clap": {
+   "task": "01a15152-80ae-722e-bcc6-fbd9528d7e3f",
+   "box": "80,80,945,945"
+  },
+  "auto_attack": {
+   "task": "01a15152-854e-7698-af32-cbae4a1802e2",
+   "box": "95,95,930,930"
+  },
+  "frostbolt": {
+   "task": "01a15152-8af2-7683-a1ce-203d24f99917",
+   "box": "80,80,945,945"
+  },
+  "fireball": {
+   "task": "01a15152-8f94-75ef-bdcc-3d4cb0637ff3",
+   "box": "135,135,905,905"
+  },
+  "frost_nova": {
+   "task": "01a15152-94e1-7427-9cb0-c23275e36e30",
+   "box": "60,60,964,964"
+  },
+  "blink": {
+   "task": "01a15152-99d0-7522-8266-e00cdcd16964",
+   "box": "245,245,780,780"
+  },
+  "shoot": {
+   "task": "01a15152-9de8-732e-ba10-21d6366a764b",
+   "box": "165,165,885,885"
+  },
+  "files": "meshy/icons/<id>.png -> assets/ui/icons/<id>.png"
+ }
+}
